@@ -1,3 +1,5 @@
-val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+fun Int.r(): RationalNumber = RationalNumber(this, 1)
 
-fun getPattern(): String = """\d{2} $month \d{4}"""
+fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(first, second)
+
+data class RationalNumber(val numerator: Int, val denominator: Int)
