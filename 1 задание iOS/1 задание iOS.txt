@@ -1,0 +1,17 @@
+import Foundation
+
+struct Person {
+    var name: String
+    var age: Int
+    var occupation: String
+    var hobbies: [String]
+    
+    func summary() -> String {
+        let hobbiesList = hobbies.joined(separator: ", ")
+        return "Меня зовут \(name). Мне \(age). Я работаю \(occupation). Мои увлечения: \(hobbiesList)."
+    }
+}
+
+let myInfo = Person(name: "Юлия", age: 21, occupation: "Бизнес-аналитик", hobbies: ["мозайки", "искусство", "чтение"])
+
+print(myInfo.summary())
