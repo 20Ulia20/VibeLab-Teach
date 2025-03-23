@@ -1,0 +1,56 @@
+import Foundation
+
+var numbers = [5, 2, 9, 1, 5, 6]
+
+let sortedAscending = numbers.sorted { $0 < $1 }
+print("Отсортированный массив по возрастанию: \(sortedAscending)")
+
+let sortedDescending = numbers.sorted { $0 > $1 }
+print("Отсортированный массив по убыванию: \(sortedDescending)")
+
+func addFriends(names: [String]) -> [String] {
+    var friends = [String]()
+    friends.append(contentsOf: names)
+    return friends
+}
+
+let friendsList = addFriends(names: ["Валерия", "Александра", "Максим", "Юлия", "Дарья"])
+
+
+let sortedFriends = friendsList.sorted { $0.count < $1.count }
+print("Отсортированные имена по количеству букв: \(sortedFriends)")
+
+var friendsDictionary: [Int: String] = [:]
+for friend in sortedFriends {
+    friendsDictionary[friend.count] = friend
+}
+
+func printFriendByKey(key: Int) {
+    if let friend = friendsDictionary[key] {
+        print("Ключ: \(key), Имя: \(friend)")
+    } else {
+        print("Имя с ключом \(key) не найдено.")
+    }
+}
+
+
+printFriendByKey(key: 7) // Пример для имени "Демидий"
+
+
+func checkAndAddValues(stringArray: inout [String], numberArray: inout [Int]) {
+    if stringArray.isEmpty {
+        stringArray.append("Пусто")
+    }
+    
+    if numberArray.isEmpty {
+        numberArray.append(0)
+    }
+    
+    print("Строковый массив: \(stringArray)")
+    print("Числовой массив: \(numberArray)")
+}
+
+var emptyStringArray: [String] = []
+var emptyNumberArray: [Int] = []
+
+checkAndAddValues(stringArray: &emptyStringArray, numberArray: &emptyNumberArray)
